@@ -1,0 +1,106 @@
+/* Baloo 2 (SIL OFL), kendi sunucumuzdan: dış istek yok, internetsiz de çalışır */
+@font-face { font-family: 'Baloo 2'; font-style: normal; font-display: swap; font-weight: 600;
+  src: url(../assets/fonts/baloo-2-latin-600-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Baloo 2'; font-style: normal; font-display: swap; font-weight: 600;
+  src: url(../assets/fonts/baloo-2-latin-ext-600-normal.woff2) format('woff2'); unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Baloo 2'; font-style: normal; font-display: swap; font-weight: 800;
+  src: url(../assets/fonts/baloo-2-latin-800-normal.woff2) format('woff2'); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Baloo 2'; font-style: normal; font-display: swap; font-weight: 800;
+  src: url(../assets/fonts/baloo-2-latin-ext-800-normal.woff2) format('woff2'); unicode-range: U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+
+:root {
+  --navy: #23304a;
+  --sky: #7fd0f8;
+  --orange: #ff8a1f;
+  --green: #3fbf5e;
+  --card: rgba(255, 255, 255, .92);
+  --shadow: 0 14px 34px rgba(35, 48, 74, .25);
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--sky); }
+body {
+  font-family: 'Baloo 2', 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+  color: var(--navy);
+  -webkit-user-select: none; user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+button { font: inherit; color: inherit; border: 0; background: none; padding: 0; cursor: pointer; }
+img { display: block; -webkit-user-drag: none; user-drag: none; }
+button:focus-visible, input:focus-visible { outline: 6px solid var(--orange); outline-offset: 6px; border-radius: 24px; }
+
+#viewport { position: fixed; inset: 0; overflow: hidden; background: var(--sky); }
+#stage {
+  position: absolute; left: 50%; top: 50%;
+  width: 1920px; height: 1080px; margin: -540px 0 0 -960px;
+  transform: scale(var(--s, 1)); transform-origin: center center;
+  overflow: hidden; background: var(--sky);
+}
+
+/* ---- ekranlar ---- */
+#screen-root, .screen { position: absolute; inset: 0; }
+.screen { opacity: 0; transition: opacity .32s ease; }
+.screen.show { opacity: 1; }
+.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---- sabit düğmeler ---- */
+#hud { position: absolute; inset: 0; pointer-events: none; z-index: 30; }
+.hud-btn { position: absolute; top: 28px; width: 104px; height: 104px; pointer-events: auto; transition: transform .15s; }
+.hud-btn img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 8px rgba(35, 48, 74, .3)); }
+.hud-btn:hover { transform: scale(1.07); }
+.hud-btn:active { transform: scale(.95); }
+.hud-sound { right: 28px; }
+.hud-home { left: 28px; }
+
+/* ---- Robi ---- */
+#mascot { position: absolute; z-index: 25; cursor: pointer; }
+#mascot.pos-corner { right: 28px; bottom: 0; width: 300px; height: 318px; }
+#mascot.pos-home { left: 30px; bottom: 0; width: 560px; height: 594px; }
+#mascot img { width: 100%; height: 100%; object-fit: contain; transform-origin: 50% 100%; pointer-events: none; }
+#mascot:not(.hop) img { animation: bob 3.4s ease-in-out infinite; }
+#mascot.hop img { animation: hop .7s ease; }
+
+#subtitle {
+  position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%);
+  max-width: 1200px; z-index: 40; padding: 14px 32px; border-radius: 24px;
+  background: rgba(35, 48, 74, .9); color: #fff; font-size: 38px; text-align: center; font-weight: 600;
+}
+
+#loader { position: absolute; inset: 0; z-index: 60; display: grid; place-items: center; background: rgba(127, 208, 248, .88); }
+#loader img { width: 150px; animation: spin 1.3s linear infinite; }
+
+#fx { position: absolute; inset: 0; pointer-events: none; z-index: 45; overflow: hidden; }
+.confetti { position: absolute; left: 900px; top: 540px; }
+
+/* ---- seçilen fare imleç yerine ---- */
+#cursor { position: absolute; left: 0; top: 0; pointer-events: none; z-index: 99; will-change: transform; }
+#cursor img { filter: drop-shadow(0 5px 6px rgba(0, 0, 0, .3)); transition: transform .08s; transform-origin: 50% 0; }
+#cursor.press img { transform: scale(.9); }
+body.skin-cursor #stage, body.skin-cursor #stage * { cursor: none !important; }
+#settings:not([hidden]) ~ #cursor { display: none; }
+
+/* ---- öğretmen paneli ---- */
+#settings { position: absolute; inset: 0; z-index: 80; display: grid; place-items: center; background: rgba(13, 27, 46, .6); }
+.set-box { width: 960px; background: #fff; border-radius: 32px; padding: 36px 48px; font-size: 30px; box-shadow: var(--shadow); }
+.set-box h2 { margin: 0 0 18px; font-size: 44px; }
+.set-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 14px 0; border-bottom: 2px solid #e6ecf5; }
+.set-row input[type=checkbox] { width: 44px; height: 44px; accent-color: var(--orange); }
+.set-row input[type=range] { width: 320px; accent-color: var(--orange); }
+.set-actions { display: flex; justify-content: flex-end; gap: 20px; margin-top: 26px; }
+.set-btn { padding: 12px 32px; border-radius: 18px; background: var(--navy); color: #fff; font-size: 30px; font-weight: 600; }
+.set-btn.warn { background: #d9423e; }
+
+/* ---- animasyonlar ---- */
+@keyframes bob   { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes hop   { 0% { transform: translateY(0) scale(1); } 35% { transform: translateY(-26px) scale(1.04); } 100% { transform: translateY(0) scale(1); } }
+@keyframes spin  { to { transform: rotate(360deg); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+@keyframes bump  { 0% { transform: scale(1); } 40% { transform: scale(1.12) rotate(-2deg); } 100% { transform: scale(1); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-14px); } 75% { transform: translateX(14px); } }
+@keyframes popIn { 0% { transform: scale(.7); opacity: .2; } 60% { transform: scale(1.06); opacity: 1; } 100% { transform: scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0s !important; }
+}

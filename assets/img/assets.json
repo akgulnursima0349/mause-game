@@ -1,0 +1,500 @@
+[
+ {
+  "id": "bg_cave",
+  "file": "bg/bg_cave.jpg",
+  "w": 1376,
+  "h": 768
+ },
+ {
+  "id": "bg_clouds",
+  "file": "bg/bg_clouds.jpg",
+  "w": 1376,
+  "h": 768
+ },
+ {
+  "id": "bg_factory",
+  "file": "bg/bg_factory.jpg",
+  "w": 1376,
+  "h": 768
+ },
+ {
+  "id": "bg_farm",
+  "file": "bg/bg_farm.jpg",
+  "w": 1376,
+  "h": 768
+ },
+ {
+  "id": "bg_forest",
+  "file": "bg/bg_forest.jpg",
+  "w": 1376,
+  "h": 768
+ },
+ {
+  "id": "bg_home",
+  "file": "bg/bg_home.jpg",
+  "w": 1376,
+  "h": 768
+ },
+ {
+  "id": "bg_map",
+  "file": "bg/bg_map.jpg",
+  "w": 1376,
+  "h": 768
+ },
+ {
+  "id": "bg_meadow",
+  "file": "bg/bg_meadow.jpg",
+  "w": 1376,
+  "h": 768
+ },
+ {
+  "id": "bg_river",
+  "file": "bg/bg_river.jpg",
+  "w": 1376,
+  "h": 768
+ },
+ {
+  "id": "bg_room",
+  "file": "bg/bg_room.jpg",
+  "w": 1376,
+  "h": 768
+ },
+ {
+  "id": "bg_tower",
+  "file": "bg/bg_tower.jpg",
+  "w": 848,
+  "h": 1264
+ },
+ {
+  "id": "bg_workshop",
+  "file": "bg/bg_workshop.jpg",
+  "w": 1376,
+  "h": 768
+ },
+ {
+  "id": "item_apple",
+  "file": "items/item_apple.png",
+  "w": 494,
+  "h": 512
+ },
+ {
+  "id": "item_ball_blue",
+  "file": "items/item_ball_blue.png",
+  "w": 512,
+  "h": 512
+ },
+ {
+  "id": "item_ball_green",
+  "file": "items/item_ball_green.png",
+  "w": 512,
+  "h": 512
+ },
+ {
+  "id": "item_ball_red",
+  "file": "items/item_ball_red.png",
+  "w": 507,
+  "h": 512
+ },
+ {
+  "id": "item_ball_yellow",
+  "file": "items/item_ball_yellow.png",
+  "w": 512,
+  "h": 512
+ },
+ {
+  "id": "item_balloon_blue",
+  "file": "items/item_balloon_blue.png",
+  "w": 305,
+  "h": 512
+ },
+ {
+  "id": "item_balloon_red",
+  "file": "items/item_balloon_red.png",
+  "w": 305,
+  "h": 512
+ },
+ {
+  "id": "item_balloon_yellow",
+  "file": "items/item_balloon_yellow.png",
+  "w": 305,
+  "h": 512
+ },
+ {
+  "id": "item_banana",
+  "file": "items/item_banana.png",
+  "w": 491,
+  "h": 512
+ },
+ {
+  "id": "item_barn",
+  "file": "items/item_barn.png",
+  "w": 450,
+  "h": 512
+ },
+ {
+  "id": "item_basket",
+  "file": "items/item_basket.png",
+  "w": 492,
+  "h": 512
+ },
+ {
+  "id": "item_beacon",
+  "file": "items/item_beacon.png",
+  "w": 511,
+  "h": 512
+ },
+ {
+  "id": "item_chest",
+  "file": "items/item_chest.png",
+  "w": 512,
+  "h": 430
+ },
+ {
+  "id": "item_chicken",
+  "file": "items/item_chicken.png",
+  "w": 421,
+  "h": 512
+ },
+ {
+  "id": "item_cloud",
+  "file": "items/item_cloud.png",
+  "w": 512,
+  "h": 351
+ },
+ {
+  "id": "item_conveyor",
+  "file": "items/item_conveyor.png",
+  "w": 512,
+  "h": 191
+ },
+ {
+  "id": "item_cow",
+  "file": "items/item_cow.png",
+  "w": 512,
+  "h": 427
+ },
+ {
+  "id": "item_crystal",
+  "file": "items/item_crystal.png",
+  "w": 395,
+  "h": 512
+ },
+ {
+  "id": "item_flag",
+  "file": "items/item_flag.png",
+  "w": 324,
+  "h": 512
+ },
+ {
+  "id": "item_gear",
+  "file": "items/item_gear.png",
+  "w": 512,
+  "h": 507
+ },
+ {
+  "id": "item_gift_closed",
+  "file": "items/item_gift_closed.png",
+  "w": 456,
+  "h": 512
+ },
+ {
+  "id": "item_gift_open",
+  "file": "items/item_gift_open.png",
+  "w": 495,
+  "h": 512
+ },
+ {
+  "id": "item_grapes",
+  "file": "items/item_grapes.png",
+  "w": 373,
+  "h": 512
+ },
+ {
+  "id": "item_hammer",
+  "file": "items/item_hammer.png",
+  "w": 443,
+  "h": 512
+ },
+ {
+  "id": "item_paint",
+  "file": "items/item_paint.png",
+  "w": 378,
+  "h": 512
+ },
+ {
+  "id": "item_plank",
+  "file": "items/item_plank.png",
+  "w": 512,
+  "h": 167
+ },
+ {
+  "id": "item_sheep",
+  "file": "items/item_sheep.png",
+  "w": 512,
+  "h": 425
+ },
+ {
+  "id": "item_spring",
+  "file": "items/item_spring.png",
+  "w": 361,
+  "h": 512
+ },
+ {
+  "id": "item_star",
+  "file": "items/item_star.png",
+  "w": 512,
+  "h": 498
+ },
+ {
+  "id": "item_stone",
+  "file": "items/item_stone.png",
+  "w": 512,
+  "h": 435
+ },
+ {
+  "id": "item_strawberry",
+  "file": "items/item_strawberry.png",
+  "w": 405,
+  "h": 512
+ },
+ {
+  "id": "item_worker_robot",
+  "file": "items/item_worker_robot.png",
+  "w": 488,
+  "h": 512
+ },
+ {
+  "id": "item_wrench",
+  "file": "items/item_wrench.png",
+  "w": 344,
+  "h": 512
+ },
+ {
+  "id": "robi_antenna",
+  "file": "items/robi_antenna.png",
+  "w": 299,
+  "h": 512
+ },
+ {
+  "id": "robi_arm",
+  "file": "items/robi_arm.png",
+  "w": 354,
+  "h": 512
+ },
+ {
+  "id": "robi_body",
+  "file": "items/robi_body.png",
+  "w": 354,
+  "h": 512
+ },
+ {
+  "id": "robi_head",
+  "file": "items/robi_head.png",
+  "w": 512,
+  "h": 510
+ },
+ {
+  "id": "robi_leg",
+  "file": "items/robi_leg.png",
+  "w": 398,
+  "h": 512
+ },
+ {
+  "id": "mascot_cheer",
+  "file": "mascot/mascot_cheer.png",
+  "w": 824,
+  "h": 874
+ },
+ {
+  "id": "mascot_happy",
+  "file": "mascot/mascot_happy.png",
+  "w": 824,
+  "h": 874
+ },
+ {
+  "id": "mascot_idle",
+  "file": "mascot/mascot_idle.png",
+  "w": 824,
+  "h": 874
+ },
+ {
+  "id": "mascot_talk_open",
+  "file": "mascot/mascot_talk_open.png",
+  "w": 824,
+  "h": 874
+ },
+ {
+  "id": "mascot_think",
+  "file": "mascot/mascot_think.png",
+  "w": 824,
+  "h": 874
+ },
+ {
+  "id": "mascot_wave",
+  "file": "mascot/mascot_wave.png",
+  "w": 824,
+  "h": 874
+ },
+ {
+  "id": "mouse_base",
+  "file": "mouse/mouse_base.png",
+  "w": 576,
+  "h": 800
+ },
+ {
+  "id": "skin_dino",
+  "file": "mouse/skin_dino.png",
+  "w": 566,
+  "h": 800
+ },
+ {
+  "id": "skin_furry",
+  "file": "mouse/skin_furry.png",
+  "w": 684,
+  "h": 800
+ },
+ {
+  "id": "skin_ladybug",
+  "file": "mouse/skin_ladybug.png",
+  "w": 642,
+  "h": 800
+ },
+ {
+  "id": "skin_pixel",
+  "file": "mouse/skin_pixel.png",
+  "w": 519,
+  "h": 800
+ },
+ {
+  "id": "skin_robi",
+  "file": "mouse/skin_robi.png",
+  "w": 556,
+  "h": 800
+ },
+ {
+  "id": "skin_spider",
+  "file": "mouse/skin_spider.png",
+  "w": 642,
+  "h": 800
+ },
+ {
+  "id": "part_case",
+  "file": "parts/part_case.png",
+  "w": 394,
+  "h": 512
+ },
+ {
+  "id": "part_keyboard",
+  "file": "parts/part_keyboard.png",
+  "w": 512,
+  "h": 220
+ },
+ {
+  "id": "part_laptop",
+  "file": "parts/part_laptop.png",
+  "w": 510,
+  "h": 512
+ },
+ {
+  "id": "part_monitor",
+  "file": "parts/part_monitor.png",
+  "w": 512,
+  "h": 452
+ },
+ {
+  "id": "part_speaker",
+  "file": "parts/part_speaker.png",
+  "w": 512,
+  "h": 440
+ },
+ {
+  "id": "btn_home",
+  "file": "ui/btn_home.png",
+  "w": 384,
+  "h": 384
+ },
+ {
+  "id": "btn_next",
+  "file": "ui/btn_next.png",
+  "w": 384,
+  "h": 384
+ },
+ {
+  "id": "btn_play",
+  "file": "ui/btn_play.png",
+  "w": 384,
+  "h": 383
+ },
+ {
+  "id": "btn_prev",
+  "file": "ui/btn_prev.png",
+  "w": 384,
+  "h": 384
+ },
+ {
+  "id": "btn_sound_off",
+  "file": "ui/btn_sound_off.png",
+  "w": 384,
+  "h": 384
+ },
+ {
+  "id": "btn_sound_on",
+  "file": "ui/btn_sound_on.png",
+  "w": 384,
+  "h": 384
+ },
+ {
+  "id": "btn_start",
+  "file": "ui/btn_start.png",
+  "w": 384,
+  "h": 201
+ },
+ {
+  "id": "cert_frame",
+  "file": "ui/cert_frame.png",
+  "w": 384,
+  "h": 255
+ },
+ {
+  "id": "icon_check",
+  "file": "ui/icon_check.png",
+  "w": 380,
+  "h": 384
+ },
+ {
+  "id": "icon_lock",
+  "file": "ui/icon_lock.png",
+  "w": 306,
+  "h": 384
+ },
+ {
+  "id": "icon_trophy",
+  "file": "ui/icon_trophy.png",
+  "w": 384,
+  "h": 363
+ },
+ {
+  "id": "node_done",
+  "file": "ui/node_done.png",
+  "w": 384,
+  "h": 383
+ },
+ {
+  "id": "node_open",
+  "file": "ui/node_open.png",
+  "w": 384,
+  "h": 384
+ },
+ {
+  "id": "star_empty",
+  "file": "ui/star_empty.png",
+  "w": 384,
+  "h": 365
+ },
+ {
+  "id": "star_full",
+  "file": "ui/star_full.png",
+  "w": 384,
+  "h": 370
+ }
+]

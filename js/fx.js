@@ -27,6 +27,28 @@
   for (var i = 0; i < 9; i++) bubble(true);
   setInterval(function () { if (!document.hidden && ambient.childElementCount < 11) bubble(false); }, 2200);
 
+  /* Ara sıra ekranı kat eden kelebek (SVG, kanat çırpar) */
+  var BCOL = ['#ff8fb8', '#ffb347', '#b58cff'];
+  function butterfly() {
+    if (off() || document.hidden || document.body.classList.contains('teacher-mode')) return;
+    var col = BCOL[Math.floor(Math.random() * BCOL.length)], y0 = 120 + Math.random() * 600, dir = Math.random() < 0.5 ? 1 : -1;
+    var b = FO.el('div', { class: 'butterfly' });
+    b.innerHTML = '<svg viewBox="0 0 60 50" width="64" height="54"><g class="bw l"><ellipse cx="22" cy="18" rx="17" ry="14" fill="' + col + '"/><ellipse cx="24" cy="36" rx="11" ry="9" fill="' + col + '" opacity=".85"/></g><g class="bw r"><ellipse cx="38" cy="18" rx="17" ry="14" fill="' + col + '"/><ellipse cx="36" cy="36" rx="11" ry="9" fill="' + col + '" opacity=".85"/></g><rect x="28.5" y="12" width="3" height="28" rx="1.5" fill="#2b2b3a"/></svg>';
+    b.style.cssText = 'left:0;top:' + y0 + 'px';
+    ambient.append(b);
+    var x0 = dir > 0 ? -100 : 2020, x1 = dir > 0 ? 2020 : -100, dur = 14000 + Math.random() * 6000;
+    var a = b.animate([
+      { transform: 'translate(' + x0 + 'px,0)' },
+      { transform: 'translate(' + (x0 + (x1 - x0) * 0.25) + 'px,-90px)', offset: 0.25 },
+      { transform: 'translate(' + (x0 + (x1 - x0) * 0.5) + 'px,40px)', offset: 0.5 },
+      { transform: 'translate(' + (x0 + (x1 - x0) * 0.75) + 'px,-70px)', offset: 0.75 },
+      { transform: 'translate(' + x1 + 'px,0)' }
+    ], { duration: dur, easing: 'linear' });
+    a.onfinish = function () { b.remove(); };
+  }
+  setTimeout(butterfly, 3000);
+  setInterval(function () { if (ambient.querySelectorAll('.butterfly').length < 1 && Math.random() < 0.6) butterfly(); }, 9000);
+
   /* Parıltı patlaması: stage koordinatında */
   var COLORS = ['#ffd84a', '#ff8fb8', '#7fd0f8', '#9be37a', '#ffffff'];
   function burst(x, y, n, spread) {

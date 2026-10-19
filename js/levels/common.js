@@ -134,6 +134,8 @@
               inc: function () {
                 if (got >= total) return true;
                 imgs[got].src = FO.A('ui/star_full.png'); FO.flash(imgs[got], 'got', 600);
+                if (FO.fx) { var r = imgs[got].getBoundingClientRect(), q = FO.stage.toStage(r.left + r.width / 2, r.top + r.height / 2); FO.fx.burst(q.x, q.y, 10, 110); }
+                FO.audio.sfx('step', got);
                 got++; L.touch();
                 return got >= total;
               },

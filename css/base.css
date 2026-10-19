@@ -118,3 +118,9 @@ body.skin-cursor #stage, body.skin-cursor #stage * { cursor: none !important; }
 #fx .spark { position: absolute; border-radius: 50%; box-shadow: 0 0 10px rgba(255,255,255,.8); }
 #fx .ripple { position: absolute; width: 120px; height: 120px; border-radius: 50%; border: 6px solid rgba(255,255,255,.85); box-shadow: 0 0 14px rgba(255,255,255,.6); }
 body.low-perf #ambient, body.teacher-mode #ambient { display: none; }
+#ambient .butterfly { position: absolute; opacity: .9; }
+#ambient .butterfly svg { overflow: visible; }
+#ambient .bw { transform-box: fill-box; animation: flap .28s ease-in-out infinite alternate; }
+#ambient .bw.l { transform-origin: 100% 50%; }
+#ambient .bw.r { transform-origin: 0% 50%; animation-direction: alternate-reverse; }
+@keyframes flap { from { transform: scaleX(1); } to { transform: scaleX(.25); } }

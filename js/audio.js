@@ -78,6 +78,7 @@
     drop:    function () { tone(190, { slideTo: 80, dur: 0.16, gain: 0.3 }); },
     swoosh:  function () { noise({ dur: 0.28, filter: 'bandpass', freq: 500, sweepTo: 3200, gain: 0.16 }); },
     win:     function () { [523, 659, 784, 1047, 1319, 1568].forEach(function (f, i) { tone(f, { dur: 0.22, type: 'triangle', gain: 0.2, delay: i * 0.09 }); }); },
+    step:    function (i) { var f = 523 * Math.pow(1.122, (i || 0) * 2); tone(f, { dur: 0.14, type: 'triangle', gain: 0.2 }); tone(f * 1.5, { dur: 0.2, type: 'sine', gain: 0.12, delay: 0.06 }); noise({ dur: 0.05, freq: 6000, gain: 0.06, delay: 0.02 }); },
     star:    function () { tone(1175, { dur: 0.1, type: 'triangle', gain: 0.18 }); tone(1568, { dur: 0.16, type: 'triangle', gain: 0.16, delay: 0.08 }); }
   };
 
@@ -223,7 +224,7 @@
 
   FO.audio = {
     unlock: unlock,
-    sfx: function (name) { if (SFX[name]) SFX[name](); },
+    sfx: function (name, arg) { if (SFX[name]) SFX[name](arg); },
     speak: speak,
     stopVoice: stopVoice,
     startMusic: startMusic,

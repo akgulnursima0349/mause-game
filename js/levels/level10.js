@@ -21,7 +21,8 @@
           FO.el('img', { src: FO.A('items/item_plank.png'), alt: '', draggable: 'false' }));
         it._x = hx; it._y = hy; it._home = { x: hx, y: hy }; it._done = false;
         it.addEventListener('pointerdown', function (e) {
-          if (it._done || dragging || e.button !== 0) return;
+          if (it._done || e.button !== 0) return;
+          if (dragging) dragging.it._end();      // takılı kalmış eski sürükleme varsa önce bırak
           e.preventDefault(); try { it.setPointerCapture(e.pointerId); } catch (err) {}
           var p = FO.stage.toStage(e.clientX, e.clientY);
           dragging = { it: it, dx: p.x - it._x, dy: p.y - it._y };
@@ -29,6 +30,7 @@
         });
         it.addEventListener('pointermove', function (e) {
           if (!dragging || dragging.it !== it) return;
+          if (e.buttons === 0) { end(); return; }   // fare tuşu zaten bırakılmış (olay kaçmış)
           var p = FO.stage.toStage(e.clientX, e.clientY);
           it._x = p.x - dragging.dx; it._y = p.y - dragging.dy;
           it.style.left = it._x + 'px'; it.style.top = it._y + 'px';
@@ -39,7 +41,7 @@
           var cx = it._x + PW / 2, cy = it._y + PH / 2, best = null, bd = 1e9;
           /* dikeyde cömert: nehrin herhangi bir yerine bırakılan tahta en yakın boş yere oturur */
           SLOTS.forEach(function (s) { if (s.full) return; var d = Math.hypot(cx - s.x, (cy - SY) * 0.45); if (d < bd) { bd = d; best = s; } });
-          if (best && bd < 260 && cy > 200 && cy < 820) {
+          if (best && bd < 430 && cy > 120 && cy < 800) {
             best.full = true; it._done = true; it.classList.add('snap');
             it._x = best.x - PW / 2; it._y = SY - PH / 2; it.style.left = it._x + 'px'; it.style.top = it._y + 'px';
             best.el.classList.add('filled');
@@ -52,9 +54,13 @@
             if (Math.hypot(cx - it._home.x - PW / 2, cy - it._home.y - PH / 2) > 280) L.say('lv10_wrong', { pose: 'think', after: 'idle' });
           }
         }
-        it.addEventListener('pointerup', end); it.addEventListener('pointercancel', end);
+        it._end = end;
+        it.addEventListener('pointerup', end); it.addEventListener('pointercancel', end); it.addEventListener('lostpointercapture', end);
         L.root.append(it);
       });
+
+      L.listen(window, 'blur', onBlur);
+      function onBlur() { if (dragging) dragging.it._end(); }
 
       function cross() {
         L.say('lv10_cross', { pose: 'happy', after: 'idle' });

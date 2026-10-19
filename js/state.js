@@ -93,6 +93,7 @@
     add: function (name, avatar) {
       /* hiç oynanmamış otomatik "Misafir" profili, ilk gerçek öğrenci eklenince silinir */
       data.profiles = data.profiles.filter(function (g) { return !(g.name === 'Misafir' && g.auto && !Object.keys(g.progress).length && !g.totalSec); });
+      if (!avatar && FO.avatars && FO.avatars.length) avatar = FO.avatars[data.profiles.length % FO.avatars.length];
       var p = blank(String(name || '').trim().slice(0, 28) || 'Öğrenci', avatar); data.profiles.push(p); save(); emit('profiles', p.id); return p;
     },
     update: function (id, patch) {

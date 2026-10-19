@@ -59,7 +59,9 @@ button:focus-visible, input:focus-visible { outline: 6px solid var(--orange); ou
 #mascot.pos-corner { right: 28px; bottom: 0; width: 300px; height: 318px; }
 #mascot.pos-home { left: 30px; bottom: 0; width: 560px; height: 594px; }
 #mascot img { width: 100%; height: 100%; object-fit: contain; transform-origin: 50% 100%; pointer-events: none; }
-#mascot:not(.hop) img { animation: bob 3.4s ease-in-out infinite; }
+#mascot { rotate: var(--tilt, 0deg); transform-origin: 50% 100%; transition: rotate .45s ease-out; }
+#mascot:not(.hop):not(.talking) img { animation: breathe 3.6s ease-in-out infinite; }
+#mascot.talking:not(.hop) img { animation: talkBounce .34s ease-in-out infinite; }
 #mascot.hop img { animation: hop .7s ease; }
 
 #subtitle {
@@ -93,6 +95,8 @@ body.skin-cursor #stage, body.skin-cursor #stage * { cursor: none !important; }
 .set-btn.warn { background: #d9423e; }
 
 /* ---- animasyonlar ---- */
+@keyframes breathe { 0%, 100% { transform: translateY(0) scale(1, 1); } 50% { transform: translateY(-8px) scale(.985, 1.025); } }
+@keyframes talkBounce { 0%, 100% { transform: translateY(0) scale(1, 1); } 50% { transform: translateY(-5px) scale(1.015, .99); } }
 @keyframes bob   { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
 @keyframes hop   { 0% { transform: translateY(0) scale(1); } 35% { transform: translateY(-26px) scale(1.04); } 100% { transform: translateY(0) scale(1); } }
 @keyframes spin  { to { transform: rotate(360deg); } }
@@ -107,3 +111,10 @@ body.skin-cursor #stage, body.skin-cursor #stage * { cursor: none !important; }
 
 .hud-full { position: absolute; right: 150px; top: 30px; width: 100px; height: 100px; border-radius: 50%; background: #3d8ff0; border: 6px solid var(--navy); box-shadow: 0 6px 12px rgba(35, 48, 74, .3); padding: 22px; z-index: 30; }
 .hud-full svg { width: 100%; height: 100%; }
+
+/* Cila: arka plan kabarcıkları, parıltı, tıklama halkası */
+#ambient { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 2; }
+#ambient .amb { position: absolute; border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.95), rgba(255,255,255,.25) 60%, rgba(255,255,255,0)); will-change: transform, opacity; }
+#fx .spark { position: absolute; border-radius: 50%; box-shadow: 0 0 10px rgba(255,255,255,.8); }
+#fx .ripple { position: absolute; width: 120px; height: 120px; border-radius: 50%; border: 6px solid rgba(255,255,255,.85); box-shadow: 0 0 14px rgba(255,255,255,.6); }
+body.low-perf #ambient, body.teacher-mode #ambient { display: none; }

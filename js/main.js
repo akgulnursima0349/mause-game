@@ -6,6 +6,7 @@
   FO.confetti = function (n) {
     if (FO.reducedMotion()) return;
     var host = document.getElementById('fx');
+    if (FO.fx) { FO.fx.burst(960, 500, 14, 260); FO.fx.burst(560, 620, 8, 160); FO.fx.burst(1360, 620, 8, 160); }
     for (var i = 0; i < (n || 16); i++) {
       (function () {
         var size = 46 + Math.random() * 56;

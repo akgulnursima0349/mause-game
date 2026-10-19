@@ -21,9 +21,10 @@
   var pose = 'idle', lastLine = null, token = 0, mouthTimer = null, speaking = false;
 
   function setPose(p) { pose = p; img.src = FO.A(POSES[p]); }
-  function stopMouth() { if (mouthTimer) { clearInterval(mouthTimer); mouthTimer = null; } }
+  function stopMouth() { root.classList.remove('talking'); if (mouthTimer) { clearInterval(mouthTimer); mouthTimer = null; } }
   function startMouth() {
     stopMouth();
+    root.classList.add('talking');
     var open = false;
     mouthTimer = setInterval(function () { open = !open; img.src = FO.A(POSES[open ? 'talk' : 'idle']); }, 170);
   }

@@ -12,7 +12,7 @@
         var logo = FO.el('div', { class: 'logo-badge', role: 'img', 'aria-label': 'Sivas Robotik Akademi' },
           FO.el('img', { src: FO.A('brand/logo.png'), alt: '', draggable: 'false' }));
         /* Öğretmen ayarı: logoya 1,5 sn basılı tut */
-        logo.addEventListener('pointerdown', function () { holdTimer = setTimeout(function () { FO.settings.open(); }, 1500); });
+        logo.addEventListener('pointerdown', function () { holdTimer = setTimeout(function () { FO.router.go('teacher'); }, 1500); });
         ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
           logo.addEventListener(ev, function () { clearTimeout(holdTimer); });
         });
@@ -24,9 +24,7 @@
         start.addEventListener('click', function () {
           FO.audio.unlock();
           FO.audio.sfx('swoosh');
-          /* Kaldığı yerden devam: öğrenilen giriş ekranlarını tekrar yaptırma. */
-          var S = FO.state;
-          FO.router.go(S.isDone('buttons') || S.get('unlockAll') ? 'map' : S.isDone('customize') ? 'buttons' : S.isDone('parts') ? 'customize' : 'parts');
+          FO.router.go(FO.startTarget());
         });
 
         root.append(

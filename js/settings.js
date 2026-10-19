@@ -22,10 +22,6 @@
     vol.value = FO.state.get('volume');
     vol.addEventListener('input', function () { FO.state.set('volume', parseFloat(vol.value)); });
 
-    var reset = FO.el('button', { type: 'button', class: 'set-btn warn' }, 'İlerlemeyi sıfırla');
-    reset.addEventListener('click', function () {
-      if (window.confirm('Bu bilgisayardaki ilerleme silinsin mi?')) { FO.state.resetProgress(); window.alert('Sıfırlandı.'); }
-    });
     var close = FO.el('button', { type: 'button', class: 'set-btn' }, 'Kapat');
     close.addEventListener('click', function () { S.close(); });
 
@@ -36,8 +32,9 @@
       row('Altyazı (Robi ne diyorsa yazsın)', toggle('subtitles')),
       row('Ses dosyası yoksa tarayıcının Türkçe sesini kullan', toggle('ttsFallback')),
       row('İmleç yerine seçilen fareyi göster', toggle('skinCursor')),
-      row('Tüm seviyeleri aç', toggle('unlockAll')),
-      FO.el('div', { class: 'set-actions' }, reset, close));
+      row('Tüm seviyeleri aç (seçili çocuk için kilitler kalkar)', toggle('unlockAll')),
+      row('Hafif görünüm (eski/yavaş bilgisayarlar için)', toggle('lowPerf')),
+      FO.el('div', { class: 'set-actions' }, close));
     root.append(box);
     root.addEventListener('pointerdown', function (e) { if (e.target === root) S.close(); });
   }
@@ -48,7 +45,7 @@
     isOpen: function () { return !root.hidden; }
   };
   window.addEventListener('keydown', function (e) {
-    if (e.ctrlKey && e.shiftKey && (e.key === 'S' || e.key === 's')) { e.preventDefault(); S.isOpen() ? S.close() : S.open(); }
+    if (e.ctrlKey && e.shiftKey && (e.key === 'S' || e.key === 's')) { e.preventDefault(); if (S.isOpen()) S.close(); else FO.router.go('teacher'); }
     if (e.key === 'Escape' && S.isOpen()) S.close();
   });
   FO.settings = S;

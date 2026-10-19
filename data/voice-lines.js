@@ -114,6 +114,9 @@ FO.voice = {
     lv14_done:      { text: 'Hurra! Robi uyandı! Bana yardım ettiğin için teşekkürler! Şimdi yardımcı robotlar gelsin.' },
     cert_intro:     { text: 'Tebrikler! Sen artık bir fare ustasısın! İşte başarı belgen.' },
 
+    profile_intro:  { text: 'Kim oynuyor? Kendi resmini bul ve tıkla!' },
+    profile_hi:     { text: 'Merhaba! Hadi başlayalım!' },
+
     soon:           { text: 'Bu bölüm çok yakında geliyor!' }
   }
 };

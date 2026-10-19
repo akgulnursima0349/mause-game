@@ -40,7 +40,7 @@
     define: function (n, cfg) {
       built[n] = true;
       FO.router.register('level' + n, function () {
-        var cleanups = [], root, alive = true, finished = false, hintT = 0, nextBtn, hintId = cfg.hint, hintMs = cfg.hintMs || 11000;
+        var t0 = performance.now(), cleanups = [], root, alive = true, finished = false, hintT = 0, nextBtn, hintId = cfg.hint, hintMs = cfg.hintMs || 11000;
 
         var L = {
           n: n,
@@ -58,7 +58,10 @@
             return im;
           },
 
-          say: function (id, opts) { return FO.mascot.say(id, opts || {}); },
+          say: function (id, opts) {
+            if (opts && opts.pose === 'think') FO.profiles.levelHelp(n);     // Robi yönlendirdi = yardım sayılır
+            return FO.mascot.say(id, opts || {});
+          },
 
           /* Dinleyiciler seviyeden çıkınca otomatik kaldırılır. */
           listen: function (target, type, fn, opts) {
@@ -112,6 +115,7 @@
             if (finished || !hintId) return;
             hintT = setTimeout(function () {
               if (!alive || finished) return;
+              FO.profiles.levelHelp(n);
               FO.mascot.say(hintId, { pose: 'think', after: 'idle' });
               L.touch();
             }, hintMs);
@@ -151,6 +155,7 @@
             if (finished) return;
             finished = true; clearTimeout(hintT);
             FO.state.markDone('level' + n);
+            FO.profiles.levelDone(n, (performance.now() - t0) / 1000);
             FO.audio.sfx('win');
             FO.confetti(20);
             doneIdx = doneIdx % DONE_LINES.length;
@@ -169,6 +174,7 @@
           assets: (n >= 9 && n <= 13 ? PART_ORDER.map(function (lv) { return 'items/' + PARTS[lv] + '.png'; }) : []).concat(['ui/star_empty.png', 'ui/star_full.png', 'ui/btn_next.png', 'ui/btn_prev.png']).concat(cfg.bg ? ['bg/' + cfg.bg + '.jpg'] : [], cfg.assets || []),
           mount: function (r) {
             root = r;
+            FO.profiles.levelStart(n);
             if (cfg.bg) root.append(FO.el('img', { class: 'bg', src: FO.A('bg/' + cfg.bg + '.jpg'), alt: '', draggable: 'false' }));
             cfg.build(L);
             if (n >= 9 && n <= 13) {
@@ -185,6 +191,7 @@
             root.append(back);
           },
           start: function () {
+            t0 = performance.now();
             FO.mascot.show('corner');
             if (cfg.intro) FO.mascot.say(cfg.intro);
             if (PARTS[n]) {

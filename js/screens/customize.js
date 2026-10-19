@@ -25,7 +25,8 @@
         return l;
       })(),
 
-      mount: function (root) {
+      mount: function (root, opts) {
+        var back = opts && opts.from;
         root.append(
           FO.el('img', { class: 'bg', src: FO.A('bg/bg_room.jpg'), alt: '', draggable: 'false' }),
           FO.el('div', { class: 'pedestal' }));
@@ -52,14 +53,14 @@
 
         var prev = FO.el('button', { class: 'nav-btn prev-btn', type: 'button', 'aria-label': 'Geri' },
           FO.el('img', { src: FO.A('ui/btn_prev.png'), alt: '' }));
-        prev.addEventListener('click', function () { FO.audio.sfx('click'); FO.router.go('parts'); });
+        prev.addEventListener('click', function () { FO.audio.sfx('click'); FO.router.go(back || 'parts'); });
 
         nextBtn = FO.el('button', { class: 'nav-btn next-btn', type: 'button', 'aria-label': 'Devam' },
           FO.el('img', { src: FO.A('ui/btn_next.png'), alt: '' }));
         nextBtn.addEventListener('click', function () {
           FO.audio.sfx('swoosh');
           FO.state.markDone('customize');
-          FO.router.go('buttons');
+          FO.router.go(back || 'buttons');
         });
         root.append(prev, nextBtn);
         paintPreview(false);

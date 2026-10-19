@@ -14,7 +14,7 @@
     var alive = true;
     return {
       assets: (function () {
-        var l = ['bg/bg_map.jpg', 'ui/node_open.png', 'ui/node_done.png', 'ui/icon_lock.png', 'ui/star_full.png', 'ui/btn_prev.png', 'ui/icon_trophy.png'].concat([9, 10, 11, 12, 13].map(function (lv) { return 'items/' + FO.levels.parts[lv] + '.png'; }));
+        var l = ['bg/bg_map.jpg', 'ui/node_open.png', 'ui/node_done.png', 'ui/icon_lock.png', 'ui/star_full.png', 'ui/btn_prev.png', 'ui/icon_trophy.png'].concat(FO.skins.list.map(function (k) { return k.file; })).concat([9, 10, 11, 12, 13].map(function (lv) { return 'items/' + FO.levels.parts[lv] + '.png'; }));
         FO.levels.meta.forEach(function (m) { l.push(m.icon); });
         return l;
       })(),
@@ -69,6 +69,11 @@
           FO.el('img', { src: FO.A('ui/star_full.png'), alt: '', draggable: 'false' }), FO.el('span', {}, 'Albüm'));
         al.addEventListener('click', function () { FO.audio.sfx('swoosh'); FO.router.go('album'); });
         root.append(al);
+        var sk = FO.skins.byId(FO.state.get('skin'));
+        var my = FO.el('button', { class: 'album-btn mouse-btn', type: 'button', 'aria-label': 'Farem' },
+          FO.el('img', { src: FO.A(sk.file), alt: '', draggable: 'false' }), FO.el('span', {}, 'Farem'));
+        my.addEventListener('click', function () { FO.audio.sfx('swoosh'); FO.router.go('customize', { from: 'map' }); });
+        root.append(my);
         var prev = FO.el('button', { class: 'nav-btn prev-btn', type: 'button', 'aria-label': 'Geri' },
           FO.el('img', { src: FO.A('ui/btn_prev.png'), alt: '' }));
         prev.addEventListener('click', function () { FO.audio.sfx('click'); FO.router.go('buttons'); });

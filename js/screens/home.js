@@ -27,9 +27,16 @@
           FO.router.go(FO.startTarget());
         });
 
+        var pills = FO.el('div', { class: 'home-pills' });
+        var who = FO.el('button', { class: 'home-pill', type: 'button' }, 'Kim oynuyor?');
+        who.addEventListener('click', function () { FO.audio.unlock(); FO.audio.sfx('click'); FO.router.go('profiles'); });
+        var teach = FO.el('button', { class: 'home-pill', type: 'button' }, 'Öğretmen');
+        teach.addEventListener('click', function () { FO.audio.unlock(); FO.audio.sfx('click'); FO.router.go('teacher'); });
+        pills.append(who, teach);
+
         root.append(
           FO.el('img', { class: 'bg', src: FO.A('bg/bg_home.jpg'), alt: '', draggable: 'false' }),
-          logo, title, start);
+          logo, title, start, pills);
       },
 
       start: function () {

@@ -326,8 +326,8 @@ body.teacher-mode .hud-full { display: none !important; }
 .sticker.new { animation: popIn .5s both, pulse 1.1s ease-in-out .6s 3; }
 .album-count { position: absolute; left: 190px; bottom: 54px; display: flex; align-items: center; gap: 14px; padding: 6px 26px 6px 14px; border-radius: 40px; background: #fff; border: 6px solid var(--navy); font: 800 52px/1 'Baloo 2', sans-serif; color: var(--navy); }
 .album-count img { width: 60px; }
-.album-btn { position: absolute; left: 1650px; top: 170px; width: 190px; display: flex; flex-direction: column; align-items: center; gap: 4px; z-index: 20; }
-.album-btn img { width: 110px; filter: drop-shadow(0 10px 12px rgba(35,48,74,.35)); }
+.album-btn { position: absolute; left: 1340px; top: 22px; width: 150px; display: flex; flex-direction: column; align-items: center; gap: 4px; z-index: 20; }
+.album-btn img { width: 84px; height: 84px; object-fit: contain; filter: drop-shadow(0 10px 12px rgba(35,48,74,.35)); }
 .album-btn span { padding: 2px 22px; border-radius: 26px; background: #fff; border: 5px solid var(--navy); font: 800 34px/1.2 'Baloo 2', sans-serif; color: var(--navy); }
 .album-btn.has-new img { animation: pulse 1s ease-in-out infinite; }
 .album-btn:hover { transform: scale(1.06); }
@@ -350,3 +350,9 @@ body.teacher-mode .hud-full { display: none !important; }
 @keyframes trophyFloat { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
 body.low-perf .cert-rays { display: none; }
 @media (prefers-reduced-motion: reduce) { .cert-rays { animation: none; } .cert-card.cert-enter, .cert-enter * { animation: none !important; } }
+
+.album-btn.mouse-btn { left: 1500px; }
+.album-btn span { font-size: 30px; padding: 0 18px; }
+.home-pills { position: absolute; right: 48px; bottom: 36px; display: flex; gap: 18px; z-index: 20; }
+.home-pill { padding: 6px 26px; border-radius: 30px; background: rgba(255,255,255,.88); border: 5px solid var(--navy); font: 800 32px/1.3 'Baloo 2', sans-serif; color: var(--navy); box-shadow: 0 6px 12px rgba(35,48,74,.25); }
+.home-pill:hover { background: #fff; transform: translateY(-2px); }

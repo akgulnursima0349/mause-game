@@ -10,6 +10,7 @@
     build: function (L) {
       var prog = L.progress(3), placed = 0, dragging = null;
       SLOTS.forEach(function (s) {
+        s.full = false;                       // önceki oynayıştan kalan "dolu" işareti temizlenir
         s.el = FO.el('div', { class: 'plank-slot', style: { left: (s.x - PW / 2 - 8) + 'px', top: (SY - PH / 2 - 8) + 'px', width: PW + 16 + 'px', height: PH + 16 + 'px' } });
         L.root.append(s.el);
       });

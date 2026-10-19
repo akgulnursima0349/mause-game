@@ -32,6 +32,7 @@
       var group = FO.el('div', { class: 'robi-assembled' }); L.root.append(group);
 
       SLOTS.forEach(function (s) {
+        s.full = false;                       // önceki oynayıştan kalan "dolu" işareti temizlenir
         var d = DIM[s.kind];
         s.el = FO.el('img', { class: 'slot-sil', src: FO.A('items/' + d.file + '.png'), alt: '', draggable: 'false',
           style: { width: d.w + 'px', height: d.h + 'px', left: (s.x - d.w / 2) + 'px', top: (s.y - d.h / 2) + 'px', transform: 'scaleX(' + (s.flip || 1) + ')' } });

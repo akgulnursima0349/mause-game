@@ -124,3 +124,9 @@ body.low-perf #ambient, body.teacher-mode #ambient { display: none; }
 #ambient .bw.l { transform-origin: 100% 50%; }
 #ambient .bw.r { transform-origin: 0% 50%; animation-direction: alternate-reverse; }
 @keyframes flap { from { transform: scaleX(1); } to { transform: scaleX(.25); } }
+#ambient .amb.sky { border-radius: 50%; background: radial-gradient(ellipse at 50% 50%, rgba(255,255,255,.9), rgba(255,255,255,0) 70%); filter: blur(3px); }
+#ambient .amb.forest { background: radial-gradient(circle, rgba(255,246,150,1), rgba(255,226,90,.45) 45%, rgba(255,226,90,0) 72%); }
+#ambient .amb.river { background: radial-gradient(circle, #fff, rgba(255,255,255,.2) 55%, rgba(255,255,255,0) 72%); border-radius: 50%; }
+#ambient .amb.shop { background: radial-gradient(circle, #fff3b0, #ffa63d 60%, rgba(255,140,40,0)); }
+#ambient .amb.cave { background: radial-gradient(circle, rgba(220,235,255,.9), rgba(160,190,255,.25) 60%, rgba(160,190,255,0)); }
+#ambient .amb.room { background: radial-gradient(circle, rgba(255,255,255,.85), rgba(255,244,214,.25) 60%, rgba(255,244,214,0)); }

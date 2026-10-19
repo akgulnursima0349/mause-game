@@ -41,8 +41,13 @@ button:focus-visible, input:focus-visible { outline: 6px solid var(--orange); ou
 
 /* ---- ekranlar ---- */
 #screen-root, .screen { position: absolute; inset: 0; }
-.screen { opacity: 0; transition: opacity .32s ease; }
-.screen.show { opacity: 1; }
+.screen { opacity: 0; scale: .97; transition: opacity .32s ease, scale .42s cubic-bezier(.2,.8,.3,1); }
+.screen.show { opacity: 1; scale: 1; }
+/* Çıkış: hafifçe küçülüp solar (giriş büyüyerek yerine oturur) */
+.screen:not(.show) { transition: opacity .28s ease, scale .28s ease-in; }
+button { transition: scale .12s ease-out; }
+button:active:not(:disabled) { scale: .93; }
+@media (prefers-reduced-motion: reduce) { .screen, .screen.show { scale: 1; transition: opacity .15s linear; } button:active:not(:disabled) { scale: 1; } }
 .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 /* ---- sabit düğmeler ---- */

@@ -331,3 +331,22 @@ body.teacher-mode .hud-full { display: none !important; }
 .album-btn span { padding: 2px 22px; border-radius: 26px; background: #fff; border: 5px solid var(--navy); font: 800 34px/1.2 'Baloo 2', sans-serif; color: var(--navy); }
 .album-btn.has-new img { animation: pulse 1s ease-in-out infinite; }
 .album-btn:hover { transform: scale(1.06); }
+
+/* Final: belge girişi */
+.cert-rays { position: absolute; left: 50%; top: 540px; width: 2400px; height: 2400px; margin: -1200px 0 0 -1200px; border-radius: 50%; opacity: .55; pointer-events: none;
+  background: repeating-conic-gradient(from 0deg, rgba(255,235,140,.55) 0deg 8deg, rgba(255,235,140,0) 8deg 24deg); -webkit-mask-image: radial-gradient(circle, #000 18%, transparent 62%); mask-image: radial-gradient(circle, #000 18%, transparent 62%); animation: raySpin 40s linear infinite, fadeIn 1.2s ease both; }
+@keyframes raySpin { to { rotate: 360deg; } }
+@keyframes fadeIn { from { opacity: 0; } }
+.cert-card.cert-enter { animation: certDrop 1s cubic-bezier(.2,.9,.3,1.15) both; }
+@keyframes certDrop { 0% { translate: 0 -900px; rotate: -6deg; opacity: 0; } 60% { translate: 0 20px; rotate: 1.2deg; opacity: 1; } 100% { translate: 0 0; rotate: 0deg; opacity: 1; } }
+.cert-enter .cert-title, .cert-enter .cert-sub, .cert-enter .cert-text, .cert-enter .cert-foot { animation: certUp .6s ease both; }
+.cert-enter .cert-title { animation-delay: .9s; }
+.cert-enter .cert-sub { animation-delay: 1.15s; }
+.cert-enter .cert-text { animation-delay: 1.4s; }
+.cert-enter .cert-foot { animation-delay: 2.2s; }
+@keyframes certUp { from { translate: 0 30px; opacity: 0; } to { translate: 0 0; opacity: 1; } }
+.cert-enter .cert-trophy { animation: trophyIn 1s cubic-bezier(.2,.9,.3,1.3) 1.7s both, trophyFloat 3s ease-in-out 2.8s infinite; }
+@keyframes trophyIn { from { scale: .1; rotate: -200deg; opacity: 0; } to { scale: 1; rotate: 0deg; opacity: 1; } }
+@keyframes trophyFloat { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+body.low-perf .cert-rays { display: none; }
+@media (prefers-reduced-motion: reduce) { .cert-rays { animation: none; } .cert-card.cert-enter, .cert-enter * { animation: none !important; } }

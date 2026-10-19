@@ -44,6 +44,8 @@ FO.voice = {
     buttons_done:   { text: 'Fare tuşlarını öğrendin! Şimdi oyun zamanı!' },
 
     map_intro:      { text: 'Haydi bir oyun seç! Parlayan yere tıkla.' },
+    album_intro:    { text: 'Burası çıkartma albümün! Her oyunu bitirince yeni bir çıkartma kazanırsın.' },
+    album_new:      { text: 'Vay canına, yeni çıkartmalar kazandın!' },
     map_next:       { text: 'Sıradaki oyuna hazır mısın? Parlayan yere tıkla!' },
     map_locked:     { text: 'Önce önceki oyunu bitirelim!' },
     lv_done_1:      { text: 'Aferin! Çok güzel yaptın!' },

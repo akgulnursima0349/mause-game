@@ -63,6 +63,12 @@
           tr.addEventListener('click', function () { FO.audio.sfx('swoosh'); FO.router.go('cert'); });
           root.append(tr);
         }
+        var cp = FO.profiles.current(), got = 0;
+        FO.levels.meta.forEach(function (m) { if (FO.state.isDone('level' + m.n)) got++; });
+        var al = FO.el('button', { class: 'album-btn' + (cp && got > (cp.seen || 0) ? ' has-new' : ''), type: 'button', 'aria-label': 'Çıkartma albümü' },
+          FO.el('img', { src: FO.A('ui/star_full.png'), alt: '', draggable: 'false' }), FO.el('span', {}, 'Albüm'));
+        al.addEventListener('click', function () { FO.audio.sfx('swoosh'); FO.router.go('album'); });
+        root.append(al);
         var prev = FO.el('button', { class: 'nav-btn prev-btn', type: 'button', 'aria-label': 'Geri' },
           FO.el('img', { src: FO.A('ui/btn_prev.png'), alt: '' }));
         prev.addEventListener('click', function () { FO.audio.sfx('click'); FO.router.go('buttons'); });

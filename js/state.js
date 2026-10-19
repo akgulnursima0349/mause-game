@@ -99,6 +99,7 @@
       var p = byId(id); if (!p) return;
       if (patch.name != null) p.name = String(patch.name).trim().slice(0, 28) || p.name;
       if (patch.avatar) p.avatar = patch.avatar;
+      if (patch.seen != null) p.seen = patch.seen;
       save(); emit('profiles', id);
     },
     remove: function (id) {
@@ -108,7 +109,7 @@
     },
     reset: function (id) {
       var p = byId(id); if (!p) return;
-      p.progress = {}; p.doneAt = {}; p.levels = {}; p.totalSec = 0; save(); emit('profiles', id); emit('progress', null);
+      p.progress = {}; p.doneAt = {}; p.levels = {}; p.totalSec = 0; p.seen = 0; save(); emit('profiles', id); emit('progress', null);
     },
     /* Yoksa "Misafir" profili açar; oyun profilsiz de çalışsın. */
     ensureCurrent: function () {

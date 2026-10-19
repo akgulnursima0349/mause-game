@@ -19,7 +19,7 @@
     { n: 11, icon: 'items/item_stone.png' },
     { n: 12, icon: 'items/item_wrench.png' },
     { n: 13, icon: 'items/item_beacon.png' },
-    { n: 14, icon: 'items/robi_body.png' },
+    { n: 14, icon: 'mascot/mascot_happy.png' },
     { n: 15, icon: 'items/item_worker_robot.png' }
   ];
   var built = {};
